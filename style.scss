@@ -1,0 +1,91 @@
+:root {
+  --main-color: #66ccff;
+  --main-color-light: #b8e7ff;
+  --main-color-dark: #29b7ff;
+}
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  background: var(--main-color-light);
+  display: grid;
+  height: 100vh;
+  place-items: center;
+  width: 100vw;
+}
+.upload {
+  &__title {
+    color: #fff;
+    font-family: "Quicksand", sans-serif;
+    text-align: center;
+    &::before,
+    &::after {
+      color: #fff;
+      content: "|";
+      display: inline-block;
+    }
+    &::before {
+      transform: rotate(-45deg);
+      margin-inline-end: 10px;
+    }
+    &::after {
+      transform: rotate(45deg);
+      margin-inline-start: 10px;
+    }
+  }
+  &__icon {
+    text-align: center;
+    .icon__unicorn {
+      height: 150px;
+      width: 150px;
+    }
+    .icon__camera {
+      height: 80px;
+      width: 80px;
+    }
+  }
+  &__area {
+    align-items: center;
+    background: #bbbcf2;
+    border: 3px dashed #8c8fed;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    height: 400px;
+    width: 600px;
+    &.active {
+      background: #a7a8f2;
+      .icon__camera {
+        animation: move 0.1s infinite;
+      }
+    }
+  }
+  &__file {
+    &--input {
+      display: none;
+    }
+    &--label {
+      background: var(--main-color-dark);
+      color: #fff;
+    }
+  }
+}
+@keyframes move {
+  0% {
+    transform: translate(0px, 0px) rotateZ(0deg);
+  }
+  25% {
+    transform: translate(2px, 2px) rotateZ(1deg);
+  }
+  50% {
+    transform: translate(0px, 2px) rotateZ(0deg);
+  }
+  75% {
+    transform: translate(2px, 0px) rotateZ(-1deg);
+  }
+  100% {
+    transform: translate(0px, 0px) rotateZ(0deg);
+  }
+}
