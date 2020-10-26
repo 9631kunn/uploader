@@ -1,15 +1,26 @@
-:root {
-  --main-color: #66ccff;
-  --main-color-light: #b8e7ff;
-  --main-color-dark: #29b7ff;
-}
+$main-color: #66ccff;
+$main-color-lighten: #b8e7ff;
+$main-color-darken: #29b7ff;
+$sub-color: #4b83ad;
+$sub-color-lighten: #8abade;
+$sub-color-darken: #195583;
+$accent-color: #ffbad7;
+$accent-color-lighten: #ffe0ed;
+$accent-color-darken: #ffa6cb;
+$black: #111;
+$white: #fff;
+$gray: #ccc;
+$gap-s: 25px;
+$gap-m: 50px;
+$gap-l: 100px;
+
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 body {
-  background: var(--main-color-light);
+  background: $main-color-lighten;
   display: grid;
   height: 100vh;
   place-items: center;
@@ -17,47 +28,45 @@ body {
 }
 .upload {
   &__title {
-    color: #fff;
-    font-family: "Quicksand", sans-serif;
+    color: $black;
+    font: 40px "Quicksand", sans-serif;
+    margin-block-end: $gap-s;
     text-align: center;
     &::before,
     &::after {
-      color: #fff;
+      color: $black;
       content: "|";
       display: inline-block;
     }
     &::before {
       transform: rotate(-45deg);
-      margin-inline-end: 10px;
+      margin-inline-end: $gap-s;
     }
     &::after {
       transform: rotate(45deg);
-      margin-inline-start: 10px;
+      margin-inline-start: $gap-s;
     }
   }
   &__icon {
     text-align: center;
-    .icon__unicorn {
-      height: 150px;
-      width: 150px;
-    }
-    .icon__camera {
+    .upload__icon--top {
       height: 80px;
       width: 80px;
     }
   }
   &__area {
     align-items: center;
-    background: #bbbcf2;
-    border: 3px dashed #8c8fed;
+    background: $white;
+    border: 3px dashed $black;
     border-radius: 10px;
     display: flex;
     justify-content: center;
     height: 400px;
+    margin-block-end: $gap-s;
     width: 600px;
     &.active {
-      background: #a7a8f2;
-      .icon__camera {
+      background: $accent-color-lighten;
+      .upload__icon--top {
         animation: move 0.1s infinite;
       }
     }
@@ -67,8 +76,28 @@ body {
       display: none;
     }
     &--label {
-      background: var(--main-color-dark);
+      background: $main-color-darken;
       color: #fff;
+    }
+  }
+  &__button {
+    appearance: none;
+    background: $accent-color;
+    border: none;
+    border-radius: 30px;
+    box-shadow: 0 5px 0 $accent-color-darken;
+    color: $white;
+    cursor: pointer;
+    display: block;
+    font-size: 20px;
+    margin: auto;
+    outline: none;
+    padding: 10px;
+    transition: all 0.3s;
+    width: 360px;
+    &:hover {
+      box-shadow: 0 2px 0 $accent-color-darken;
+      transform: translateY(3px);
     }
   }
 }

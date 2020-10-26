@@ -1,9 +1,3 @@
-:root {
-  --main-color: #66ccff;
-  --main-color-light: #b8e7ff;
-  --main-color-dark: #29b7ff;
-}
-
 * {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -12,7 +6,7 @@
 }
 
 body {
-  background: var(--main-color-light);
+  background: #b8e7ff;
   display: -ms-grid;
   display: grid;
   height: 100vh;
@@ -21,13 +15,15 @@ body {
 }
 
 .upload__title {
-  color: #fff;
-  font-family: "Quicksand", sans-serif;
+  color: #111;
+  font: 40px "Quicksand", sans-serif;
+  -webkit-margin-after: 25px;
+          margin-block-end: 25px;
   text-align: center;
 }
 
 .upload__title::before, .upload__title::after {
-  color: #fff;
+  color: #111;
   content: "|";
   display: inline-block;
 }
@@ -35,27 +31,22 @@ body {
 .upload__title::before {
   -webkit-transform: rotate(-45deg);
           transform: rotate(-45deg);
-  -webkit-margin-end: 10px;
-          margin-inline-end: 10px;
+  -webkit-margin-end: 25px;
+          margin-inline-end: 25px;
 }
 
 .upload__title::after {
   -webkit-transform: rotate(45deg);
           transform: rotate(45deg);
-  -webkit-margin-start: 10px;
-          margin-inline-start: 10px;
+  -webkit-margin-start: 25px;
+          margin-inline-start: 25px;
 }
 
 .upload__icon {
   text-align: center;
 }
 
-.upload__icon .icon__unicorn {
-  height: 150px;
-  width: 150px;
-}
-
-.upload__icon .icon__camera {
+.upload__icon .upload__icon--top {
   height: 80px;
   width: 80px;
 }
@@ -64,8 +55,8 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  background: #bbbcf2;
-  border: 3px dashed #8c8fed;
+  background: #fff;
+  border: 3px dashed #111;
   border-radius: 10px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -74,14 +65,16 @@ body {
       -ms-flex-pack: center;
           justify-content: center;
   height: 400px;
+  -webkit-margin-after: 25px;
+          margin-block-end: 25px;
   width: 600px;
 }
 
 .upload__area.active {
-  background: #a7a8f2;
+  background: #ffe0ed;
 }
 
-.upload__area.active .icon__camera {
+.upload__area.active .upload__icon--top {
   -webkit-animation: move 0.1s infinite;
           animation: move 0.1s infinite;
 }
@@ -91,8 +84,36 @@ body {
 }
 
 .upload__file--label {
-  background: var(--main-color-dark);
+  background: #29b7ff;
   color: #fff;
+}
+
+.upload__button {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  background: #ffbad7;
+  border: none;
+  border-radius: 30px;
+  -webkit-box-shadow: 0 5px 0 #ffa6cb;
+          box-shadow: 0 5px 0 #ffa6cb;
+  color: #fff;
+  cursor: pointer;
+  display: block;
+  font-size: 20px;
+  margin: auto;
+  outline: none;
+  padding: 10px;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  width: 360px;
+}
+
+.upload__button:hover {
+  -webkit-box-shadow: 0 2px 0 #ffa6cb;
+          box-shadow: 0 2px 0 #ffa6cb;
+  -webkit-transform: translateY(3px);
+          transform: translateY(3px);
 }
 
 @-webkit-keyframes move {

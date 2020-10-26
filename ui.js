@@ -21,14 +21,16 @@
     const req = new XMLHttpRequest();
     const data = new FormData(document.querySelector(".upload__form"));
     const path = location.href + "upload.php";
+    req.open("POST", path);
+    req.send(data);
     req.onreadystatechange = () => {
       if (req.readyState !== 4 || req.status !== 200) return;
       console.log(req.responseText);
     };
-    req.open("POST", path);
-    req.send(data);
+    req.onprogress = (e) => {};
   });
 })();
 
 // アップロードに関する処理
 // [ref]https://qiita.com/yasumodev/items/516de8445d254ab12cbf
+// [ref]https://ja.javascript.info/xmlhttprequest
