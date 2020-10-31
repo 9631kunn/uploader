@@ -25,10 +25,26 @@
               multiple
               accept="image/*"
             />
-            <label for="inputFile" class="upload__file--label">ファイルを選択</label>
+            <label for="inputFile" class="upload__file--label">
+              ファイルを選択
+              <span class="upload__file--tooltip">点線エリアにドラッグすれば複数画像を一度にアップロードできるよ</span>
+            </label>
           </div>
         </div>
-        <button type="button" class="upload__button">アップロードする</button>
+        <div class="upload__result none"></div>
+        <div class="upload__copy-success">
+          <div class="upload__copy-success--message">Copied!</div>
+          <img src="./images/success.png" />
+        </div>
+        <details class="upload__option">
+          <summary>オプション</summary>
+          <label class="upload__option--check">
+            <input type="checkbox" name="overwrite" />
+            同じファイルをすでにサーバーにアップロードしたことがあるとき、アップロードするファイルをサーバー上の同じファイルに上書きする（リンクを変えたくない時などに使えるよ!）
+          </label>
+        </details>
+        <button type="button" class="upload__button upload__button--upload">アップロードする</button>
+        <button type="button" class="upload__button upload__button--copy none">リンクを全部コピーする</button>
       </form>
     </main>
     <script src="./ui.js" defer></script>
