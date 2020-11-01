@@ -89,6 +89,7 @@ img {
   -webkit-margin-after: 25px;
           margin-block-end: 25px;
   max-width: 100%;
+  position: relative;
   width: 600px;
 }
 
@@ -113,12 +114,23 @@ img {
           margin-block-end: 25px;
 }
 
+.upload__option--title {
+  background: #fff;
+  border-radius: 30px;
+  font-size: 12px;
+  margin: 0 auto 10px;
+  padding: 0.5em 1em;
+  text-align: center;
+  width: 150px;
+}
+
 .upload__option--check {
   cursor: pointer;
 }
 
-.upload__file {
-  position: relative;
+.upload__option[open] .upload__option--check {
+  -webkit-animation: fadeIn 0.7s ease-in;
+          animation: fadeIn 0.7s ease-in;
 }
 
 .upload__file--input {
@@ -130,7 +142,9 @@ img {
   border-radius: 3px;
   color: #fff;
   cursor: pointer;
+  display: inline-block;
   padding: 0.5em 1em;
+  position: relative;
 }
 
 .upload__file--label:hover .upload__file--tooltip {
@@ -148,6 +162,92 @@ img {
   -webkit-transition: opacity 0.3s;
   transition: opacity 0.3s;
   white-space: nowrap;
+}
+
+.upload__file--lists {
+  border: 2px solid #111;
+  border-radius: 4px;
+  bottom: 25px;
+  height: 100px;
+  left: 50%;
+  list-style: none;
+  min-width: 300px;
+  overflow-y: scroll;
+  padding: 25px 10px 10px;
+  position: absolute;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  width: 50%;
+}
+
+.upload__file--lists::before {
+  background: #111;
+  color: #fff;
+  content: "アップロードするファイル";
+  display: inline-block;
+  font-size: 12px;
+  left: 0;
+  line-height: 15px;
+  padding: 0 5px;
+  position: absolute;
+  top: 0;
+}
+
+.upload__file--lists .upload__file--list {
+  -webkit-animation: fadeIn 0.5s both;
+          animation: fadeIn 0.5s both;
+  -webkit-margin-after: 10px;
+          margin-block-end: 10px;
+}
+
+.upload__file--lists .upload__file--list:nth-of-type(1) {
+  -webkit-animation-delay: 0.2s;
+          animation-delay: 0.2s;
+}
+
+.upload__file--lists .upload__file--list:nth-of-type(2) {
+  -webkit-animation-delay: 0.4s;
+          animation-delay: 0.4s;
+}
+
+.upload__file--lists .upload__file--list:nth-of-type(3) {
+  -webkit-animation-delay: 0.6s;
+          animation-delay: 0.6s;
+}
+
+.upload__file--lists .upload__file--list:nth-of-type(4) {
+  -webkit-animation-delay: 0.8s;
+          animation-delay: 0.8s;
+}
+
+.upload__file--lists .upload__file--list:nth-of-type(5) {
+  -webkit-animation-delay: 1s;
+          animation-delay: 1s;
+}
+
+.upload__file--lists .upload__file--list:nth-of-type(6) {
+  -webkit-animation-delay: 1.2s;
+          animation-delay: 1.2s;
+}
+
+.upload__file--lists .upload__file--list:nth-of-type(7) {
+  -webkit-animation-delay: 1.4s;
+          animation-delay: 1.4s;
+}
+
+.upload__file--lists .upload__file--list:nth-of-type(8) {
+  -webkit-animation-delay: 1.6s;
+          animation-delay: 1.6s;
+}
+
+.upload__file--lists .upload__file--list:nth-of-type(9) {
+  -webkit-animation-delay: 1.8s;
+          animation-delay: 1.8s;
+}
+
+.upload__file--lists .upload__file--list:nth-of-type(10) {
+  -webkit-animation-delay: 2s;
+          animation-delay: 2s;
 }
 
 .upload__button {
@@ -194,15 +294,32 @@ img {
           transform: translateY(3px);
 }
 
+.upload__button--home {
+  background: #66ccff;
+  -webkit-box-shadow: 0 5px 0 #29b7ff;
+          box-shadow: 0 5px 0 #29b7ff;
+  text-align: center;
+  text-decoration: none;
+}
+
+.upload__button--home:hover {
+  -webkit-box-shadow: 0 2px 0 #29b7ff;
+          box-shadow: 0 2px 0 #29b7ff;
+  -webkit-transform: translateY(3px);
+          transform: translateY(3px);
+}
+
 .upload__result {
   display: -ms-grid;
   display: grid;
   gap: 25px;
   -ms-grid-columns: 1fr 1fr 1fr;
       grid-template-columns: 1fr 1fr 1fr;
+  height: 400px;
   -webkit-margin-after: 25px;
           margin-block-end: 25px;
   max-width: 100%;
+  overflow-y: scroll;
   width: 600px;
 }
 
@@ -213,53 +330,53 @@ img {
 }
 
 .upload__result--link:nth-of-type(1) {
-  -webkit-animation-delay: 0.5s;
-          animation-delay: 0.5s;
+  -webkit-animation-delay: 0.2s;
+          animation-delay: 0.2s;
 }
 
 .upload__result--link:nth-of-type(2) {
+  -webkit-animation-delay: 0.4s;
+          animation-delay: 0.4s;
+}
+
+.upload__result--link:nth-of-type(3) {
+  -webkit-animation-delay: 0.6s;
+          animation-delay: 0.6s;
+}
+
+.upload__result--link:nth-of-type(4) {
+  -webkit-animation-delay: 0.8s;
+          animation-delay: 0.8s;
+}
+
+.upload__result--link:nth-of-type(5) {
   -webkit-animation-delay: 1s;
           animation-delay: 1s;
 }
 
-.upload__result--link:nth-of-type(3) {
-  -webkit-animation-delay: 1.5s;
-          animation-delay: 1.5s;
-}
-
-.upload__result--link:nth-of-type(4) {
-  -webkit-animation-delay: 2s;
-          animation-delay: 2s;
-}
-
-.upload__result--link:nth-of-type(5) {
-  -webkit-animation-delay: 2.5s;
-          animation-delay: 2.5s;
-}
-
 .upload__result--link:nth-of-type(6) {
-  -webkit-animation-delay: 3s;
-          animation-delay: 3s;
+  -webkit-animation-delay: 1.2s;
+          animation-delay: 1.2s;
 }
 
 .upload__result--link:nth-of-type(7) {
-  -webkit-animation-delay: 3.5s;
-          animation-delay: 3.5s;
+  -webkit-animation-delay: 1.4s;
+          animation-delay: 1.4s;
 }
 
 .upload__result--link:nth-of-type(8) {
-  -webkit-animation-delay: 4s;
-          animation-delay: 4s;
+  -webkit-animation-delay: 1.6s;
+          animation-delay: 1.6s;
 }
 
 .upload__result--link:nth-of-type(9) {
-  -webkit-animation-delay: 4.5s;
-          animation-delay: 4.5s;
+  -webkit-animation-delay: 1.8s;
+          animation-delay: 1.8s;
 }
 
 .upload__result--link:nth-of-type(10) {
-  -webkit-animation-delay: 5s;
-          animation-delay: 5s;
+  -webkit-animation-delay: 2s;
+          animation-delay: 2s;
 }
 
 .upload__result--link:hover .upload__result--img {
@@ -307,13 +424,13 @@ img {
 }
 
 .fadeOut {
-  -webkit-animation: fadeOut 1s both;
-          animation: fadeOut 1s both;
+  -webkit-animation: fadeOut 1s;
+          animation: fadeOut 1s;
 }
 
 .fadeIn {
-  -webkit-animation: fadeIn 1s 1s both;
-          animation: fadeIn 1s 1s both;
+  -webkit-animation: fadeIn 1s;
+          animation: fadeIn 1s;
 }
 
 @-webkit-keyframes move {
@@ -364,21 +481,22 @@ img {
 
 @-webkit-keyframes fadeOut {
   100% {
-    height: 0;
     opacity: 0;
+    -webkit-transform: translateY(-30px);
+            transform: translateY(-30px);
   }
 }
 
 @keyframes fadeOut {
   100% {
-    height: 0;
     opacity: 0;
+    -webkit-transform: translateY(-30px);
+            transform: translateY(-30px);
   }
 }
 
 @-webkit-keyframes fadeIn {
   0% {
-    height: 0;
     opacity: 0;
     -webkit-transform: translateY(30px);
             transform: translateY(30px);
@@ -387,7 +505,6 @@ img {
     opacity: 0;
   }
   100% {
-    height: auto;
     opacity: 1;
     -webkit-transform: none;
             transform: none;
@@ -396,7 +513,6 @@ img {
 
 @keyframes fadeIn {
   0% {
-    height: 0;
     opacity: 0;
     -webkit-transform: translateY(30px);
             transform: translateY(30px);
@@ -405,7 +521,6 @@ img {
     opacity: 0;
   }
   100% {
-    height: auto;
     opacity: 1;
     -webkit-transform: none;
             transform: none;

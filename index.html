@@ -29,6 +29,7 @@
               ファイルを選択
               <span class="upload__file--tooltip">点線エリアにドラッグすれば複数画像を一度にアップロードできるよ</span>
             </label>
+            <ol class="upload__file--lists none"></ol>
           </div>
         </div>
         <div class="upload__result none"></div>
@@ -37,7 +38,7 @@
           <img src="./images/success.png" />
         </div>
         <details class="upload__option">
-          <summary>オプション</summary>
+          <summary class="upload__option--title">オプション</summary>
           <label class="upload__option--check">
             <input type="checkbox" name="overwrite" />
             同じファイルをすでにサーバーにアップロードしたことがあるとき、アップロードするファイルをサーバー上の同じファイルに上書きする（リンクを変えたくない時などに使えるよ!）
@@ -45,6 +46,7 @@
         </details>
         <button type="button" class="upload__button upload__button--upload">アップロードする</button>
         <button type="button" class="upload__button upload__button--copy none">リンクを全部コピーする</button>
+        <a href="./" class="upload__button upload__button--home none">HOME</a>
       </form>
     </main>
     <script src="./ui.js" defer></script>

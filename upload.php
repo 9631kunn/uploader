@@ -14,25 +14,32 @@ for($i = 0; $i < count($_FILES["upload"]["name"]); $i++)
   list($filename, $extension) = explode(".", $original);
 
   // ファイル名変更しない場合とする場合
-  if ($_POST["overwrite"]){
+  if ($_POST["overwrite"])
+  {
     // dataディレクトリ内から同名ファイルの検索
     $matches = preg_grep("/".$filename."/", glob("data/*"));
-    if(empty($matches)){
+    if(empty($matches))
+    {
       $upload_name = date("YmdHis")."_".$filename.".".$extension;
-    }else{
+    }
+    else
+    {
       // マッチしたものがあれば一応その中で最新のものを取得する
       $path = end($matches);
       $format_path = str_replace('data/', '', $path);
       $upload_name = $format_path;
     }
-  } else {
+  }
+  else
+  {
     $upload_name = date("YmdHis")."_".$filename.".".$extension;
   }
 
-  // アップロード処理
-  $result = @move_uploaded_file($tmp_file, $upload_dir.$upload_name);
-  // checkbox用意してその値による分岐
-  // checkがあれば既存のファイルとアップロードされたファイルを上書き
+  // アップロード処理（画像形式かどうか）
+  if($extension == "jpg" || $extension == "png" || $extention == "gif" || $extention == "jpeg")
+  {
+    $result = @move_uploaded_file($tmp_file, $upload_dir.$upload_name);
+  }
 
   // Success / Error メッセージ
   if($result === true)
@@ -46,7 +53,14 @@ for($i = 0; $i < count($_FILES["upload"]["name"]); $i++)
   }
   else
   {
-    echo $original."をアップロード出来ませんでした。";
+    if(isset($original))
+    {
+      echo $original."をアップロード出来ませんでした。";
+    }
+    else
+    {
+      echo "アップロード出来ませんでした";
+    }
   }
 }
 

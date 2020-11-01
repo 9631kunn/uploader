@@ -4,8 +4,10 @@
     a = d.querySelector(".upload__area"),
     r = d.querySelector(".upload__result"),
     i = d.querySelector(".upload__file--input"),
+    l = d.querySelector(".upload__file--lists"),
     b = d.querySelector(".upload__button--upload"),
     c = d.querySelector(".upload__button--copy"),
+    h = d.querySelector(".upload__button--home"),
     o = d.querySelector(".upload__option");
   console.log(r);
 
@@ -22,17 +24,26 @@
     e.preventDefault();
     a.classList.remove("active");
     i.files = e.dataTransfer.files;
-    // デザイン修正のためここのタイミングでファイル名取得してspanとかで要素挿入
+    l.classList.remove("none");
+    // upするファイル名表示
+    for (let index = 0; index < i.files.length; index++) {
+      console.log(i.files[index]);
+      const list = d.createElement("li"),
+        text = d.createTextNode(i.files[index].name);
+      list.className = "upload__file--list";
+      list.appendChild(text);
+      l.appendChild(list);
+    }
   });
   // アップロード処理
   b.addEventListener("click", (e) => {
     e.preventDefault();
-    a.classList.add("fadeOut");
-    b.classList.add("fadeOut");
+    [a, b, o].map((i) => i.classList.add("fadeOut"));
     setTimeout(() => {
-      a.classList.add("none");
-      b.classList.add("none");
-    }, 1500);
+      [a, b, o].map((i) => i.classList.add("none"));
+      [r, c, h].map((i) => i.classList.remove("none"));
+      [r, c, h].map((i) => i.classList.add("fadeIn"));
+    }, 1000);
     const req = new XMLHttpRequest(),
       data = new FormData(d.querySelector(".upload__form")),
       path = location.href + "upload.php";
@@ -40,12 +51,10 @@
     req.send(data);
     req.onreadystatechange = () => {
       if (req.readyState !== 4 || req.status !== 200) return;
-      r.classList.remove("none");
-      c.classList.remove("none");
-      r.classList.add("fadeIn");
-      c.classList.add("fadeIn");
-      o.classList.add("none");
-      d.querySelector(".upload__title").textContent = "Yay! Uploaded!!";
+      req.responseText.includes("アップロード出来ませんでした")
+        ? (d.querySelector(".upload__title").textContent = "OMG! Failed ;_;")
+        : (d.querySelector(".upload__title").textContent = "Yay! Uploaded!!");
+
       r.insertAdjacentHTML("afterbegin", req.responseText);
     };
   });
